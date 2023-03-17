@@ -44,12 +44,9 @@ apiRouter.use('/cart', cartRouter);
 const photoRouter = require('./photos');
 apiRouter.use('/photos', photoRouter);
 
-<<<<<<< Updated upstream
 const selectedCarRouter = require('./selectedCars');
 apiRouter.use('/selectedCars', selectedCarRouter);
 
-=======
->>>>>>> Stashed changes
 // ROUTER: /api/favorites
 const favoriteRouter = require('./favorite');
 apiRouter.use('/favorite', favoriteRouter);
