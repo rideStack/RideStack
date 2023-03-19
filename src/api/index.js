@@ -18,7 +18,11 @@ import axios from 'axios';
   }
 */
 
-export const APIURL = `http://localhost:4000/api`;
+// Connect to deployed database
+export const APIURL = `https://ridestack.onrender.com/api`;
+
+// export const APIURL = `http://localhost:4000/api`;
+
 
 //this is where all our api endpoints are located
 
@@ -54,6 +58,24 @@ export async function addToSelectedCars(carsId, cartId) {
     console.error(err);
   }
 }
+
+// Delete car from a cart
+export async function deleteCarFromSelectedCar(id) {
+  console.log("car id from front end api:", id)
+  try {
+    const res = await fetch(`${APIURL}/selectedCars/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = res.json();
+    return json;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 
 // Fetch all cars
 export async function fetchAllCars() {
@@ -303,7 +325,6 @@ export async function createPhoto(carsId, image) {
 // Delete photos
 export async function deletePhoto(id) {
   try {
-    console.log('photo is #2:', id);
     const res = await fetch(`${APIURL}/photos/${id}`, {
       method: 'DELETE',
       headers: {
@@ -328,6 +349,21 @@ export async function createCart(userId) {
       body: JSON.stringify({
         userId: userId
       }),
+    });
+    const json = res.json();
+    return json;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function deleteCart(id) {
+  try {
+    const res = await fetch(`${APIURL}/cart/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     const json = res.json();
     return json;

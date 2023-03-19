@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory} from 'react-router-dom';
+import { deleteCart, fetchSelectedCars } from '../api/index';
 
-const Navbar = ({ token, setToken, setUsername, user, setUser }) => {
+const Navbar = ({ token, setToken, setUsername, user, setUser, cart }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [selectedCars, setSelectedCars] = useState([]);
   const history = useHistory();
 
+  useEffect(() => {
+    const cartCount = async () => {
+      const carsInCart = await fetchSelectedCars();
+      setSelectedCars(carsInCart);
+    };
+    cartCount();
+  }, []);
+
     const logout = () => {
+      deleteCart(cart.id)
       localStorage.removeItem('token');
       localStorage.removeItem('cart');
       setUsername('');
@@ -14,40 +25,46 @@ const Navbar = ({ token, setToken, setUsername, user, setUser }) => {
       history.push('/');   
   }
 
+  const carsInCart = selectedCars.filter((f) => f.cartId == cart.id) 
+
+  const carsInCartNumber = carsInCart.length
+
+  console.log({carsInCartNumber})
+
     return (
     <div>
         <div className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8">
           <div className="flex flex-1 items-center justify-between gap-8">
-            <div className='flex items-center sm:px-6 lg:px-8'>
+            <div id="navBar" className='flex items-center sm:px-6 lg:px-8'>
               <div className='flex justify-start mr-10'>
                 <Link to='/'>
-                  <span className='font-serif text-4xl'>RideStack</span>
+                  <span className='font-serif text-4xl pl-2'>RideStack</span>
                 </Link>
               </div>
-              <div className='flex justify-end flex-1 mr-auto'>
+              <div className='flex justify-end flex-1 mr-auto d-md-none hidden'>
                 <Link to="/cars" className=' active:text-indigo-600'>
-                    <button className='m-2 font-serif text-xl font-style: italic hover:text-indigo-600 focus:text-indigo-600'>
-                        Find Your Dream Car...
+                    <button className='m-2 font-serif text-xl font-style: italic hover:text-indigo-600 focus:text-indigo-600 '>
+                        Find Your Car...
                     </button>
                 </Link>
 
               </div>
             </div>
       <div className="flex items-center">
-              <div className="flex items-center divide-x divide-gray-100 border-x border-gray-100">
+              <div className="flex items-center divide-x divide-gray-100 border-x border-gray-100 pr-2">
                 
                 {!token ? (
                     <div className="sm:flex sm:gap-4">
                     <Link to="/Login"
                       className="block rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700"
                     >
-                      Log in
+                      Log-in
                     </Link>
 
                     <Link to="/register"
                       className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600 transition hover:text-indigo-600/75 sm:block"
                     >
-                      Sign up
+                      Sign-up
                     </Link>
                     
                   </div>
@@ -114,6 +131,7 @@ const Navbar = ({ token, setToken, setUsername, user, setUser }) => {
         <div className="indicator">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
         </div>
+        {/* <span>({carsInCartNumber})</span> */}
       </label>
                   </div>
           </span>

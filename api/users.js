@@ -7,6 +7,7 @@ const {
   getUser,
   getUserbyId,
   getAllAdminUsers,
+  getAllUsers,
 } = require('../db');
 
 const jwt = require('jsonwebtoken');
@@ -112,6 +113,18 @@ apiRouter.get('/account', async (req, res, next) => {
   } catch (error) {
     console.error('err in /account in db/users.js');
   }
+});
+
+apiRouter.get('/', async (req, res, next) => {
+  try {
+      const users = await getAllUsers()
+
+  res.send(
+      users
+  )
+} catch(error) {
+  next(error)
+}
 });
 
 module.exports = apiRouter;
