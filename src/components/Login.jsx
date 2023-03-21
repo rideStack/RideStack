@@ -128,7 +128,7 @@ const Login = ({setToken, setUser, setCart}) => {
 
             <p className="mt-4 text-sm text-gray-500 sm:mt-0">
               <>Need an account? </>
-              <Link to="/Register"><a className="text-gray-700 underline">Create New Account</a>.</Link>
+              <Link to="/Register"><a className="text-gray-700 underline">Create new account</a>.</Link>
             </p>
           </div>
         </form>
