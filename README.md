@@ -7,10 +7,10 @@ Database Structure: https://dbdiagram.io/d/63f6b628296d97641d830ce0
 
 This fullstack RideStack app consists of:
 
-- an Express web server,
-- a PostgreSQL database instance,
-- tailwind css,
-- and a React front-end
+- Express web server,
+- PostgreSQL database instance,
+- Tailwind css,
+- React front-end.
 
 # Team members
 Bobby Whitacre, Ana Tran, Zeljko Maric 
