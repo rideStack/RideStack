@@ -96,3 +96,6 @@ Bobby Whitacre, Ana Tran, Zeljko Maric
 ├── package.json
 ├── README.md
 └── tailwind.config.js
+
+
+© 2023. RideStack. All rights reserved. FullStack Academy
