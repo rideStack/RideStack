@@ -13,7 +13,7 @@ const Account = ({ user }) => {
                     </h1>
 
                     <p className="mt-1.5 text-sm text-gray-500">
-                    Let's get you in a new car! 🙌🏻
+                    Let's get you in a new car!
                         </p>
                         <div className="flex space-x-4">
                             <Link to = "/cars"><button className="btn btn-outline btn-primary">Find Your Car</button></Link>
