@@ -64,12 +64,12 @@ const Home = () => {
               ></span>
 
               <div className="p-8 sm:p-16 lg:p-24">
-                <h2 className="text-2xl font-bold sm:text-3xl">
+                <h2 className="font-serif md:text-4xl">
                   RideStack
                 </h2>
 
                 <div className="mt-4 text-gray-600" id='infoline'>
-                  Your electric journey begins here.
+                  Your dream car journey begins here.
                 </div>
 
                 <form>

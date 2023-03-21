@@ -29,7 +29,7 @@ const Navbar = ({ token, setToken, setUsername, user, setUser, cart }) => {
 
   const carsInCartNumber = carsInCart.length
 
-  console.log({carsInCartNumber})
+
 
     return (
     <div>
@@ -58,13 +58,13 @@ const Navbar = ({ token, setToken, setUsername, user, setUser, cart }) => {
                     <Link to="/Login"
                       className="block rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-700"
                     >
-                      Log-in
+                      Log in
                     </Link>
 
                     <Link to="/register"
                       className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-indigo-600 transition hover:text-indigo-600/75 sm:block"
                     >
-                      Sign-up
+                      Sign up
                     </Link>
                     
                   </div>
