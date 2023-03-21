@@ -19,35 +19,79 @@ Bobby Whitacre, Ana Tran, Zack Maric
 ```bash
 ├── .github/workflows
 │   └── heroku-deploy.yaml
-│  
+│   └── validate-pull-request.yaml
+│  
 ├── api
 │   ├── apiRouter.test.js
+│   └── cars.js
+│   └── cart.js
+│   └── favorite.js
 │   └── index.js
+│   └── make.js
+│   └── models.js
+│   └── photos.js
+│   └── selectedCars.js
+│   └── type.js
+│   └── users.js
+│   └── utils.js
 │
 ├── db
-│   ├── models
-│   │   ├── index.js
-│   │   └── user.js
-│   ├── client.js
-│   ├── index.js
-│   └── init_db.js
+│   └── cars.js
+│   └── cart.js
+│   └── client.js
+│   └── favorite.js
+│   └── index.js
+│   └── make.js
+│   └── models.js
+│   └── photos.js
+│   └── seedData.js
+│   └── selectedCars.js
+│   └── type.js
+│   └── users.js
 │
 ├── public
 │   └── index.html
 │
+├── ridestack
+│   ├── public
+│   │   └── favicon.ico
+│   │   └── index.html
+│   │   └── manifest.json
+│   ├── src
+│   │   └── App.css
+│   │   └── App.js
+│   │   └── App.test.js
+│   │   └── index.css
+│   │   └── index.js
+│   │   └── reportWebVitals.js
+│   │   └── setupTests.js
+│
 ├── src
-│   ├── axios-services
+│   ├── api
 │   │   └── index.js
 │   ├── components
-│   │   ├── App.js
-│   │   └── index.js
+│   │   ├── Account.jsx
+│   │   └── Admin.jsx
+│   │   └── App.jsx
+│   │   └── Car_details.jsx
+│   │   └── Cars.jsx
+│   │   └── Cart.jsx
+│   │   └── Footer.jsx
+│   │   └── Home.jsx
+│   │   └── index.jsx
+│   │   └── Login.jsx
+│   │   └── Navbar.jsx
+│   │   └── NotFound.jsx
+│   │   └── Register.jsx
 │   ├── style
 │   │   ├── App.css
 │   │   └── index.css
 │   └── index.js
 │
+├── .env
 ├── .gitignore
 ├── index.js
 ├── package-lock.json
 ├── package.json
-└── README.md
+├── README.md
+└── tailwind.config.js
