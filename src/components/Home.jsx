@@ -69,7 +69,7 @@ const Home = () => {
                 </h2>
 
                 <div className="mt-4 text-gray-600" id='infoline'>
-                  Your electric journey begins here.
+                  Your dream car journey begins here.
                 </div>
 
                 <form>
