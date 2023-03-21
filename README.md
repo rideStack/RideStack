@@ -1,11 +1,11 @@
-# Welcome to RideStack fullstack project
+# Welcome to RideStack full stack project
 ## Deployed project website: https://ride-stack.netlify.app
 
 Team Contract: https://docs.google.com/document/d/1bT2tpt3oG1CYDUQSzTMGMxoCUEYVljcu9Xkkv4Oq7Io/edit
 
 Database Structure: https://dbdiagram.io/d/63f6b628296d97641d830ce0
 
-This fullstack RideStack app consists of:
+This full stack RideStack app consists of:
 
 - Express web server,
 - PostgreSQL database instance,
