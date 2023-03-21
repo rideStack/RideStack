@@ -29,7 +29,7 @@ const Navbar = ({ token, setToken, setUsername, user, setUser, cart }) => {
 
   const carsInCartNumber = carsInCart.length
 
-  console.log({carsInCartNumber})
+
 
     return (
     <div>
