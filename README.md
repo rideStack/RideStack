@@ -9,6 +9,7 @@ This fullstack RideStack app consists of:
 
 - an Express web server,
 - a PostgreSQL database instance,
+- tailwind css,
 - and a React front-end
 
 # Team members
