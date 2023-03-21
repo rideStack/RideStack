@@ -12,9 +12,7 @@ This fullstack RideStack app consists of:
 - and a React front-end
 
 # Team members
-## Bobby Whitacre, Ana Tran, Zack Maric 
-
-## Getting Started
+Bobby Whitacre, Ana Tran, Zack Maric 
 
 ## Project Structure
 
