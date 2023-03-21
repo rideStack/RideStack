@@ -1,5 +1,5 @@
 # Welcome to RideStack fullstack project
-## https://ride-stack.netlify.app/
+## Deployed project website: https://ride-stack.netlify.app
 
 Team Contract: https://docs.google.com/document/d/1bT2tpt3oG1CYDUQSzTMGMxoCUEYVljcu9Xkkv4Oq7Io/edit
 
@@ -13,7 +13,7 @@ This fullstack RideStack app consists of:
 - and a React front-end
 
 # Team members
-Bobby Whitacre, Ana Tran, Zack Maric 
+Bobby Whitacre, Ana Tran, Zeljko Maric 
 
 ## Project Structure
 
