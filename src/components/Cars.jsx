@@ -11,6 +11,8 @@ const Cars = ({ userId, cart }) => {
   const [photos, setPhotos] = useState([]);
   const [carts, setCarts] = useState([]);
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const [selectedMakeId, setSelectedMakeId] = useState('');
   const [selectedModelId, setSelectedModelId] = useState('');
   const [selectedPrice, setSelectedPrice] = useState('');
@@ -90,6 +92,7 @@ const Cars = ({ userId, cart }) => {
 
   useEffect(() => {
     const carPage = async () => {
+      setIsLoading(true);
       const cars = await fetchAllCars();
       const types = await fetchAllTypes();
       const makes = await fetchAllMakes();
@@ -112,9 +115,10 @@ const Cars = ({ userId, cart }) => {
         setIsFilterModelOnHistory(false)
         setIsFilterPriceOnHistory(false)
       }
+      setIsLoading(false);
     };
     carPage();
-  }, [filterMake, filterModel, filterPrice, selectedMakeId, selectedModelId, selectedPrice]);
+  }, [filterMake, filterModel, filterPrice]);
 
 
 
@@ -162,6 +166,13 @@ const Cars = ({ userId, cart }) => {
   const filteredCar = cars.map((c) => filteredMake.find((f) => c.id == f.id) && filteredModel.find((f) => c.id == f.id)  && filteredPrice.find((f) => c.id == f.id) )
   
   const filteredCars = filteredCar.filter((f) => f?.id)
+
+  const loading = () => {
+    return (<div id="loading">
+        <h2 className="message" class='text-center'>Loading...</h2>
+    </div>)
+    }
+
 
 
   return (
@@ -237,7 +248,7 @@ const Cars = ({ userId, cart }) => {
 
       <div id="postsDisplay">
 
-        {filteredCars.map((e, i) => {
+        {isLoading ? loading() : filteredCars.map((e, i) => {
           return (
             <div key={i} className="carPost">
 
