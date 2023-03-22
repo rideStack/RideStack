@@ -64,12 +64,12 @@ const Home = () => {
               ></span>
 
               <div className="p-8 sm:p-16 lg:p-24">
-                <h2 className="text-2xl font-bold sm:text-3xl">
+                <h2 className="font-serif md:text-4xl">
                   RideStack
                 </h2>
 
                 <div className="mt-4 text-gray-600" id='infoline'>
-                  Your electric journey begins here.
+                  Your dream car journey begins here.
                 </div>
 
                 <form>
@@ -117,7 +117,7 @@ const Home = () => {
       </h2>
 
       <p className="mt-4 text-gray-500 sm:text-xl">
-        Order online and we will ship your car to you anywhere in the world with free same-day delivery. Take 30 days to love it or return it. The way it should be done. A hassle-free kind of happy.
+        Order online and we will deliver your car to you anywhere in the world with free same-day delivery. Take 30 days to love it or return it. A hassle-free kind of happy. The way it should be done.
         
       </p>
     </div>

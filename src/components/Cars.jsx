@@ -123,6 +123,7 @@ const Cars = ({ userId, cart }) => {
 
 
   const handleAddToSelectedCars = async (carsId, cart) => {
+    alert("Added to Cart!")
     await addToSelectedCars(carsId, cart.id);
   };
 

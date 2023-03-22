@@ -9,11 +9,11 @@ const Account = ({ user }) => {
                 <div className="sm:flex sm:items-center sm:justify-between">
                 <div className="text-center sm:text-left">
                     <h1 className="font-serif text-2xl font-bold text-gray-900 sm:text-3xl">
-                            Welcome Back, {user?.username}!
+                            Welcome back, {user?.username}!
                     </h1>
 
                     <p className="mt-1.5 text-sm text-gray-500">
-                    Let's get you in a new car! 🙌🏻
+                    Let's get you in a new car!
                         </p>
                         <div className="flex space-x-4">
                             <Link to = "/cars"><button className="btn btn-outline btn-primary">Find Your Car</button></Link>
