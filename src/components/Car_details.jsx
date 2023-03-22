@@ -36,7 +36,7 @@ const Car_details = ({selectedCar}) => {
       
         <div className="relative border border-gray-100 bg-white p-6">
       
-                {cars.filter((c) => c.id === selectedCar)
+                {/* {cars.filter((c) => c.id === selectedCar)
                     .map((c) => {
                         return (
                             <tr key={c.id}>
@@ -57,7 +57,7 @@ const Car_details = ({selectedCar}) => {
                                 </td>
                         </tr>
                     )
-                })}
+                })} */}
 
           <h3 className="mt-4 text-lg font-medium text-gray-900">Robot Toy</h3>
       
