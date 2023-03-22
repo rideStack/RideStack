@@ -42,7 +42,7 @@ const Register = () => {
           <h1
             className="font-serif md:text-4xl"
           >
-            Create an Account with RideStack!
+            Create an account with RideStack!
           </h1>
 
           <p className="mt-4 leading-relaxed text-gray-500">
