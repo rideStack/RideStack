@@ -51,9 +51,9 @@ const App = () => {
       {/* <Route path="/:carsId">
         <Car_details selectedCar={selectedCar}/>
       </Route> */}
-      {/* <Route exact path="*">
+      <Route exact path="*">
         <NotFound />
-      </Route> */}
+      </Route> 
       </Switch>
       <footer><Footer /></footer>
     </BrowserRouter>
