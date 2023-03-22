@@ -5,6 +5,7 @@ const Cart = ({ userId, cart }) => {
   const [selectedCars, setSelectedCars] = useState([]);
   const [allCarts, setAllCarts] = useState([]);
 
+
   const [cars, setCars] = useState([]);
   const [types, setTypes] = useState([]);
   const [models, setModels] = useState([]);
@@ -34,7 +35,6 @@ const Cart = ({ userId, cart }) => {
     };
     cartPage();
   }, [isRemove]);
-
 
 
 
