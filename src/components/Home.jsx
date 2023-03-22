@@ -83,19 +83,19 @@ const Home = () => {
                     {models.filter((model) => model.makeId == selectedMakeId).map((e, j) => (<option key={j} value={e.id}>{e.name}</option>))}
                   </select>
                   <select className='select' value={selectedPrice} onChange={(event) => setSelectedPrice(event.target.value)}>
-                    <option value='0'>Max Price</option>
-                    <option>40,000</option>
-                    <option>60,000</option>
-                    <option>80,000</option>
-                    <option>100,000</option>
-                    <option>120,000</option>
-                    <option>140,000</option>
-                    <option>160,000</option>
-                    <option>180,000</option>
-                    <option>200,000</option>
-                    <option>300,000</option>
-                    <option>400,000</option>
-                    <option>500,000</option>
+                  <option value='0'>Max Price</option>
+                    <option value='40000'>40,000</option>
+                    <option value='60000'>60,000</option>
+                    <option value='80000'>80,000</option>
+                    <option value='100000'>100,000</option>
+                    <option value='120000'>120,000</option>
+                    <option value='140000'>140,000</option>
+                    <option value='160000'>160,000</option>
+                    <option value='180000'>180,000</option>
+                    <option value='200000'>200,000</option>
+                    <option value='300000'>300,000</option>
+                    <option value='400000'>400,000</option>
+                    <option value='500000'>500,000</option>
                   </select>
                   <button className="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500" onClick={handleSubmit}>Search</button>
                   </div>

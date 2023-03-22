@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchAllCars, fetchAllTypes, fetchAllModels, fetchAllPhotos, fetchAllMakes, addToSelectedCars, fetchAllCarts } from '../api/index';
 import { useHistory } from 'react-router-dom';
 
-const Cars = ({userId, cart}) => {
+const Cars = ({ userId, cart }) => {
   const [cars, setCars] = useState([]);
   const [types, setTypes] = useState([]);
   const [models, setModels] = useState([]);
@@ -77,7 +77,7 @@ const Cars = ({userId, cart}) => {
     setSelectedPrice(event.target.value)
     setIsFilterPriceOnCarsPage(true)
   }
- 
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsFilterOnCarsPage(true);
@@ -86,7 +86,7 @@ const Cars = ({userId, cart}) => {
     setFilterPrice(selectedPrice)
   }
 
-  
+
 
   useEffect(() => {
     const carPage = async () => {
@@ -103,11 +103,11 @@ const Cars = ({userId, cart}) => {
       setPhotos(photos);
       setCarts(carts);
 
-      if(isFilterOnCarsPage == false){
-      handleSetMakeFromHistory();
-      handleSetModelFromHistory();
-      handleSetPriceFromHistory();
-      }else if(isFilterOnCarsPage == true) {
+      if (isFilterOnCarsPage == false) {
+        handleSetMakeFromHistory();
+        handleSetModelFromHistory();
+        handleSetPriceFromHistory();
+      } else if (isFilterOnCarsPage == true) {
         setIsFilterMakeOnHistory(false)
         setIsFilterModelOnHistory(false)
         setIsFilterPriceOnHistory(false)
@@ -121,6 +121,47 @@ const Cars = ({userId, cart}) => {
   const handleAddToSelectedCars = async (carsId, cart) => {
     await addToSelectedCars(carsId, cart.id);
   };
+
+  // Functions for filtering the cars
+
+  const filteredMake = cars.filter((c) => {
+    if(filterMake === ""){
+      return c.makeId
+    }
+    if (isFilterMakeOnHistory == true) {
+      return c.makeId == filterMake
+    }
+    return c.makeId == filterMake
+  })
+
+  const filteredModel = cars.filter((c) => {
+    if(filterModel === ""){
+      return c.modelId
+    }
+    if (isFilterModelOnHistory == true) {
+      return c.modelId == filterModel
+    }
+    return c.modelId == filterModel
+  })
+  
+
+  const filteredPrice = cars.filter((c) => {
+    if (filterPrice === "") {
+      return c.price
+    }
+    if (filterPrice == 0) {
+      return c.price
+    }
+    if (isFilterPriceOnHistory == true) {
+      return c.price <= filterPrice
+    }
+    return c.price <= filterPrice
+  })
+
+
+  const filteredCar = cars.map((c) => filteredMake.find((f) => c.id == f.id) && filteredModel.find((f) => c.id == f.id)  && filteredPrice.find((f) => c.id == f.id) )
+  
+  const filteredCars = filteredCar.filter((f) => f?.id)
 
 
   return (
@@ -143,30 +184,30 @@ const Cars = ({userId, cart}) => {
 
                 <form>
                   <div id='searchDiv'>
-                  <select className='select' value={selectedMakeId} onChange={handleSetMakeFromCarsPage}>
-                    <option value=''>Make</option>
-                    {makes.map((e, i) => (<option key={i} value={e.id}>{e.name}</option>))}
-                  </select>
-                  <select className='select' value={selectedModelId} onChange={handleSetModelFromCarsPage}>
-                    <option value=''>Model</option>
-                    {models.filter((model) => model.makeId == selectedMakeId).map((e, j) => (<option key={j} value={e.id}>{e.name}</option>))}
-                  </select>
-                  <select className='select' value={selectedPrice} onChange={handleSetPriceFromCarsPage}>
-                    <option value='0'>Max Price</option>
-                    <option>40,000</option>
-                    <option>60,000</option>
-                    <option>80,000</option>
-                    <option>100,000</option>
-                    <option>120,000</option>
-                    <option>140,000</option>
-                    <option>160,000</option>
-                    <option>180,000</option>
-                    <option>200,000</option>
-                    <option>300,000</option>
-                    <option>400,000</option>
-                    <option>500,000</option>
-                  </select>
-                  <button class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500" onClick={handleSubmit}>Search</button>
+                    <select className='select' value={selectedMakeId} onChange={handleSetMakeFromCarsPage}>
+                      <option value=''>Make</option>
+                      {makes.map((e, i) => (<option key={i} value={e.id}>{e.name}</option>))}
+                    </select>
+                    <select className='select' value={selectedModelId} onChange={handleSetModelFromCarsPage}>
+                      <option value=''>Model</option>
+                      {models.filter((model) => model.makeId == selectedMakeId).map((e, j) => (<option key={j} value={e.id}>{e.name}</option>))}
+                    </select>
+                    <select className='select' value={selectedPrice} onChange={handleSetPriceFromCarsPage}>
+                      <option value='0'>Max Price</option>
+                      <option value='40000'>40,000</option>
+                      <option value='60000'>60,000</option>
+                      <option value='80000'>80,000</option>
+                      <option value='100000'>100,000</option>
+                      <option value='120000'>120,000</option>
+                      <option value='140000'>140,000</option>
+                      <option value='160000'>160,000</option>
+                      <option value='180000'>180,000</option>
+                      <option value='200000'>200,000</option>
+                      <option value='300000'>300,000</option>
+                      <option value='400000'>400,000</option>
+                      <option value='500000'>500,000</option>
+                    </select>
+                    <button class="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500" onClick={handleSubmit}>Search</button>
                   </div>
 
                 </form>
@@ -196,47 +237,7 @@ const Cars = ({userId, cart}) => {
 
       <div id="postsDisplay">
 
-        {cars.filter((c) => {
-      
-          if (isFilterMakeOnHistory == true) {
-            if (isFilterPriceOnHistory == true && isFilterModelOnHistory == false){
-              return c.makeId == filterMake && c.price <= filterPrice
-            }
-            if (isFilterModelOnHistory == true) {
-              if (isFilterPriceOnHistory == true){
-                return c.modelId == filterModel && c.price <= filterPrice
-              }
-              return c.modelId == filterModel
-            }
-            return c.makeId == filterMake
-          }
-          if (isFilterPriceOnHistory == true) {
-            return c.price <= filterPrice
-          }
-
-          if (!filterMake && !filterPrice){
-            return c.id
-          }
-
-          if (isFilterMakeOnCarsPage == true) {
-            if (isFilterPriceOnCarsPage == true && isFilterModelOnCarsPage == false){
-              return c.makeId == filterMake && c.price <= filterPrice
-            }
-            if (isFilterModelOnCarsPage == true) {
-              if (isFilterPriceOnCarsPage == true){
-                return c.modelId == filterModel && c.price <= filterPrice
-              }
-              return c.modelId == filterModel
-            }
-            return c.makeId == filterMake
-          }
-          if (isFilterPriceOnCarsPage == true) {
-            return c.price <= filterPrice
-          }
-
-          else return c.id
-
-        }).map((e, i) => {
+        {filteredCars.map((e, i) => {
           return (
             <div key={i} className="carPost">
 
@@ -270,13 +271,13 @@ const Cars = ({userId, cart}) => {
                     ))}</>
                     <div>{e.color}</div>
                   </div>
-          
+
                 </div>
-                { userId ? 
-                <div id="addToCartDiv">
-                <button className='button' id="addToCartButton"onClick={() => handleAddToSelectedCars(e.id, cart)}>Add to cart</button>
-                </div> : ""}
-                </div>
+                {userId ?
+                  <div id="addToCartDiv">
+                    <button className='button' id="addToCartButton" onClick={() => handleAddToSelectedCars(e.id, cart)}>Add to cart</button>
+                  </div> : ""}
+              </div>
 
             </div>)
         })}
