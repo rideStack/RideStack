@@ -117,7 +117,7 @@ const Home = () => {
       </h2>
 
       <p className="mt-4 text-gray-500 sm:text-xl">
-        Order online and we will deliver your car to you anywhere in the world with free same-day delivery. Take 30 days to love it or return it. A hassle-free kind of happy. The way it should be done.
+        Order online and we will deliver your car to you anywhere in the world with free same-day delivery. Take 30 days to love it or return it. A haggle-free kind of happy. The way things should be done.
         
       </p>
     </div>
